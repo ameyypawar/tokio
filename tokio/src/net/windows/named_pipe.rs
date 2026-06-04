@@ -2643,7 +2643,7 @@ pub struct PipeInfo {
 /// Coalesces all `bufs` into one allocation and issues a single `write` syscall.
 ///
 /// Windows named pipes have no OS-level scatter/gather for pipes
-/// (ReadFileScatter/WriteFileGather are file-only and require page-aligned
+/// (`ReadFileScatter`/`WriteFileGather` are file-only and require page-aligned
 /// buffers), so the correct approach is to coalesce on the write side and
 /// scatter on the read side, preserving in-order and partial-IO semantics.
 fn write_vectored_inner(
